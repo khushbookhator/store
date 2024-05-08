@@ -51,22 +51,27 @@ const deleteIndividualProduct = async (req, res) => {
         console.log(error)
     }
 }
-// const getItems = async(req, res) => {
-//     try{
-//         const type = req.params.type
-//         const data = await Candidate.find({type: {$eq: type}})
-//         res.status(201).json({data: data})
-//     }
-//     catch{
-//         console.error(error);
-//         res.status(500).json({message: "Server Error"})
-//     }
-// }
+
+//get products bifurcated as per category and company
+const getSortedProducts = async(req, res) => {
+    try{
+        const category = req.params.category
+        const company = req.params.company
+
+        const data = await Product.find({category: {$eq: category} , company: {$eq: company}})
+        res.status(201).json({data: data})
+    }
+    catch{
+        console.error(error);
+        res.status(500).json({message: "Server Error"})
+    }
+    
+}
 
 module.exports = {
     getAllProducts,
     postProduct,
     getIndividualProduct,
-    deleteIndividualProduct
-    //getItems
+    deleteIndividualProduct,
+    getSortedProducts
 }
