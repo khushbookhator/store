@@ -17,6 +17,7 @@ const productSchema = new mongoose.Schema({
     },
     image : {
         type: Buffer,
+        contentType: String,
         required: false
     },
     itemCode: {
