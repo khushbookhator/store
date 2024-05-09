@@ -1,4 +1,5 @@
-const Product = require("../models/products")
+const Product = require("../models/products");
+const upload = require("../utils/img");
 
 const getAllProducts = async (req, res) => {
     try {
@@ -11,22 +12,22 @@ const getAllProducts = async (req, res) => {
     }
 }
 
-const postProduct = async (req, res) => {
-    const {} = req.body
-    try{
-        const newProduct = new Product(req.body)
-        await newProduct.save()
-        if (newProduct) {
-            res.status(201).json({ message: 'Product added successfully' });
-        } else {
-            res.status(500).json({ error: 'Failed to add new Product' });
-        }
-    }
-    catch (error){
-    console.log(error);
-    res.status(404).json({ error: 'Sorry! something went wrong' });
-    }
-}
+// const postProduct = async  (req, res) => {
+//     const {} = req.body
+//     try{
+//         const newProduct = new Product(req.body)
+//         await newProduct.save()
+//         if (newProduct) {
+//             res.status(201).json({ message: 'Product added successfully' });
+//         } else {
+//             res.status(500).json({ error: 'Failed to add new Product' });
+//         }
+//     }
+//     catch (error){
+//     console.log(error);
+//     res.status(404).json({ error: 'Sorry! something went wrong' });
+//     }
+// }
 
 const getIndividualProduct = async (req, res) => {
     try {
@@ -70,7 +71,7 @@ const getSortedProducts = async(req, res) => {
 
 module.exports = {
     getAllProducts,
-    postProduct,
+    // postProduct,
     getIndividualProduct,
     deleteIndividualProduct,
     getSortedProducts

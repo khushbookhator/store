@@ -3,6 +3,7 @@ var cors = require('cors')
 
 
 const express = require("express")
+const multer  = require('multer')
 const connectDB = require("./config/db")
 const productRoute = require("./routes/productRoute")
 
