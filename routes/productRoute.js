@@ -19,7 +19,7 @@ router.get("/product/:category/:company", getSortedProducts)
 //posting a new product
 router.post("/product", upload.single("image"), async(req, res) => {
     
-    let image = req.file.path
+    let image = req.file.filename
     const {category, company, itemName, itemCode, description, purPrice, quality, selPrice} = req.body
     try{
         const newProduct = new Product({

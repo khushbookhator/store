@@ -3,13 +3,14 @@ var cors = require('cors')
 
 
 const express = require("express")
-const multer  = require('multer')
+
 const connectDB = require("./config/db")
 const productRoute = require("./routes/productRoute")
 
 connectDB()
 
 const app = express()
+app.use(express.static('public'))
 
 app.use(express.json());
 app.use(cors())

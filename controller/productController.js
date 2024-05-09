@@ -71,7 +71,6 @@ const getSortedProducts = async(req, res) => {
 
 module.exports = {
     getAllProducts,
-    // postProduct,
     getIndividualProduct,
     deleteIndividualProduct,
     getSortedProducts
